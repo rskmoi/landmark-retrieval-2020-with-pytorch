@@ -1,0 +1,10 @@
+train:
+  lr: 1e-4
+  epochs: 3
+  batch_size: 64
+model:
+  name: mobilenetv2
+  head: simple_head
+path:
+  input: hoge
+  output: ./result/4th_exp
