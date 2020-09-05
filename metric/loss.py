@@ -29,6 +29,6 @@ class ArcFaceLoss(torch.nn.modules.Module):
         output *= self.s
         loss1 = self.classify_loss(output, labels)
         loss2 = self.classify_loss(cosine, labels)
-        gamma=1
-        loss=(loss1+gamma*loss2)/(1+gamma)
+        gamma = 1
+        loss = (loss1 + gamma * loss2) / (1 + gamma)
         return loss

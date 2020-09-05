@@ -109,7 +109,7 @@ class ArcFaceModel(torch.nn.Module):
                  num_classes: int,
                  backbone_model_name: str,
                  head_name: str,
-                 feature_size = 512,
+                 feature_size: int = 512,
                  extract_feature: bool = True):
         super(ArcFaceModel, self).__init__()
         self.extract_feature = extract_feature
@@ -134,10 +134,10 @@ def arcface_model(num_classes: int,
                   head_name: str,
                   extract_feature: bool,
                   pretrained_model_path: str = None) -> torch.nn.Module:
-    model:torch.nn.Module = ArcFaceModel(num_classes=num_classes,
-                                         backbone_model_name=backbone_model_name,
-                                         head_name=head_name,
-                                         extract_feature=extract_feature)
+    model: torch.nn.Module = ArcFaceModel(num_classes=num_classes,
+                                          backbone_model_name=backbone_model_name,
+                                          head_name=head_name,
+                                          extract_feature=extract_feature)
 
     model.to(DEVICE)
 
@@ -145,7 +145,6 @@ def arcface_model(num_classes: int,
         model.load_state_dict(torch.load(pretrained_model_path))
 
     return model
-
 
 
 if __name__ == '__main__':

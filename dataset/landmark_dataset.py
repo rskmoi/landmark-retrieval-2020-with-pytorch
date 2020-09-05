@@ -1,8 +1,6 @@
 from pathlib import Path
-from typing import Dict, List
 
 import numpy as np
-import torch
 from albumentations import CenterCrop, Compose, Normalize, RandomCrop, Resize
 from albumentations.pytorch import ToTensorV2
 from PIL import Image
@@ -23,7 +21,7 @@ class _Dataset(Dataset):
         self.mode = mode
         self.image_and_class_list = self._make_image_and_class_list()
         self.transform = self.make_transform()
-        print("Created Dataset. mode: {} files: {}".format(self.mode, len(self.image_and_class_list)))
+        print(f"Created Dataset. mode: {self.mode} files: {len(self.image_and_class_list)}")
 
     def _make_image_and_class_list(self):
         """

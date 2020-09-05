@@ -52,10 +52,10 @@ def train(cfg: DictConfig):
         out_dir.mkdir(parents=True)
 
     dataset = LandmarkDataset(batch_size=cfg.train.batch_size, mode="train")
-    model:torch.nn.Module = arcface_model(num_classes=dataset.dataset.num_classes,
-                                          backbone_model_name=cfg.model.name,
-                                          head_name=cfg.model.head,
-                                          extract_feature=False)
+    model: torch.nn.Module = arcface_model(num_classes=dataset.dataset.num_classes,
+                                           backbone_model_name=cfg.model.name,
+                                           head_name=cfg.model.head,
+                                           extract_feature=False)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=cfg.train.lr)
     criterion = ArcFaceLoss()

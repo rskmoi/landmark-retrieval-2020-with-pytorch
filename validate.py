@@ -53,12 +53,11 @@ def save_features_and_labels(loader, model):
 
 def _valid(pretrained_model_path: str):
     dataset = LandmarkDataset(batch_size=64, mode="test")
-    model:torch.nn.Module = arcface_model(num_classes=dataset.dataset.num_classes,
-                                          backbone_model_name="mobilenetv2",
-                                          head_name="simple_head",
-                                          extract_feature=True,
-                                          pretrained_model_path=pretrained_model_path)
-                                          # pretrained_model_path="outputs/2020-09-05/12-04-26/result/4th_exp/2epoch_final_step.pth")
+    model: torch.nn.Module = arcface_model(num_classes=dataset.dataset.num_classes,
+                                           backbone_model_name="mobilenetv2",
+                                           head_name="simple_head",
+                                           extract_feature=True,
+                                           pretrained_model_path=pretrained_model_path)
 
     save_features_and_labels(loader=dataset.get_loader(),
                              model=model)
