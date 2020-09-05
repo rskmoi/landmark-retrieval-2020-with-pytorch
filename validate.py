@@ -1,10 +1,12 @@
-import torch
 import click
 import numpy as np
-from dataset.landmark_dataset import LandmarkDataset
-from model.model import arcface_model
+import torch
 import torch.nn.functional as F
 from tqdm import tqdm
+
+from dataset.landmark_dataset import LandmarkDataset
+from model.model import arcface_model
+
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 

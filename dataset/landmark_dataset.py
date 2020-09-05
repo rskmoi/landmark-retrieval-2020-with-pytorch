@@ -1,12 +1,15 @@
 from pathlib import Path
-from typing import List, Dict
+from typing import Dict, List
+
 import numpy as np
-from PIL import Image
 import torch
-from torch.utils.data import Dataset, DataLoader
-from albumentations import Compose, Resize, RandomCrop, Normalize, CenterCrop
+from albumentations import CenterCrop, Compose, Normalize, RandomCrop, Resize
 from albumentations.pytorch import ToTensorV2
+from PIL import Image
+from torch.utils.data import DataLoader, Dataset
+
 from dataset.id_to_label_3 import ID_TO_LABEL
+
 TRAIN_ROOT = Path(__file__).resolve().parent / "../../landmark-retrieval-2020/train_over_50"
 TEST_ROOT = Path(__file__).resolve().parent / "../../landmark-retrieval-2020/valid_over_40"
 

@@ -1,13 +1,16 @@
+from pathlib import Path
+
+import hydra
 import torch
+from omegaconf import DictConfig
 from torch.optim.optimizer import Optimizer
 from torch.utils.data import DataLoader
-from dataset.landmark_dataset import LandmarkDataset
-from model.model import arcface_model
-from metric.loss import ArcFaceLoss
 from tqdm import tqdm
-from pathlib import Path
-import hydra
-from omegaconf import DictConfig
+
+from dataset.landmark_dataset import LandmarkDataset
+from metric.loss import ArcFaceLoss
+from model.model import arcface_model
+
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 

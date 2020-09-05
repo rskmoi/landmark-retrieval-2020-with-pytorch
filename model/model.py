@@ -1,8 +1,11 @@
-from torchvision.models import mobilenet_v2, MobileNetV2
-import torch.nn.functional as F
-import torch
 import math
+
+import torch
+import torch.nn.functional as F
+from torchvision.models import MobileNetV2, mobilenet_v2
+
 from model.pooling import GeM
+
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 
